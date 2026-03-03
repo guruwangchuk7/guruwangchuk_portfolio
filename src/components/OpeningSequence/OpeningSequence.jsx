@@ -16,7 +16,6 @@ const NameContent = ({ layerClass }) => (
                 </div>
                 <div className="last-name">
                     W<span className="hidden-letters">angchuk</span>
-                    <span className="asterisk">*</span>
                 </div>
             </div>
         </div>

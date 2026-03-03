@@ -142,7 +142,6 @@
 
     .cursor-follower-img {
         display: none !important;
-        /* Disable mouse tracking layer overhead on mobile sizes natively */
     }
 
     .proj-meta {
@@ -153,7 +152,6 @@
         width: 85%;
     }
 
-    /* Turn off extraneous data on small devices */
     .proj-tech-box,
     .proj-icon {
         display: none;
@@ -161,6 +159,37 @@
 
     .proj-title-text {
         color: #F4F4F4;
-        /* Keep text visibly locked-on for mobile fallback */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-section-v2 {
+        padding: 10vh 6vw;
+    }
+
+    .v2-header h2 {
+        font-size: 2rem;
+    }
+
+    .project-row {
+        padding: 4vh 0;
+    }
+
+    .proj-title-text {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .proj-meta {
+        display: none;
+    }
+
+    .proj-title {
+        width: 100%;
+    }
+
+    .proj-title-text {
+        font-size: 2.2rem;
     }
 }

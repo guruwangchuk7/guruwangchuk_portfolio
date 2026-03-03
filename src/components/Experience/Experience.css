@@ -108,3 +108,46 @@
     max-width: 800px;
     color: rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 8vh 6vw;
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .exp-item {
+        padding-left: 1.5rem;
+    }
+
+    .exp-top h3 {
+        font-size: 1.8rem;
+    }
+
+    .exp-role {
+        font-size: 0.9rem;
+    }
+
+    .exp-meta {
+        gap: 1rem;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+
+    .exp-item p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .exp-top h3 {
+        font-size: 1.5rem;
+    }
+}
