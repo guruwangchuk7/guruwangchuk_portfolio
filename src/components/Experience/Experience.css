@@ -1,7 +1,7 @@
 .experience-section {
     background: #F4F4F4;
     color: #1A1A1A;
-    padding: 15vh 5vw;
+    padding: 8vh 5vw;
     font-family: 'Inter', sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -11,24 +11,33 @@
     margin: 0 auto;
 }
 
-.exp-header {
+.section-header {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
 }
 
-.exp-header h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+.section-number {
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: monospace;
+    opacity: 0.4;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
 }
 
 .exp-grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2.5rem;
 }
 
 .exp-item {
@@ -90,7 +99,7 @@
     font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.5);
     font-family: monospace;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .exp-item p {

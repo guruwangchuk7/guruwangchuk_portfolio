@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Briefcase } from 'lucide-react';
 import './Experience.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -28,8 +27,22 @@ const Experience = () => {
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            const items = gsap.utils.toArray('.exp-item');
+            const header = containerRef.current.querySelector('.section-header');
+            if (header) {
+                gsap.from(header, {
+                    scrollTrigger: {
+                        trigger: header,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "power3.out"
+                });
+            }
 
+            const items = gsap.utils.toArray('.exp-item');
             items.forEach((item, i) => {
                 gsap.from(item, {
                     scrollTrigger: {
@@ -37,22 +50,12 @@ const Experience = () => {
                         start: "top 85%",
                         toggleActions: "play none none reverse"
                     },
-                    y: 100,
+                    y: 60,
                     opacity: 0,
                     duration: 1,
                     ease: "power3.out",
-                    delay: i * 0.1
+                    delay: i * 0.05
                 });
-            });
-
-            gsap.from(".exp-header", {
-                scrollTrigger: {
-                    trigger: ".exp-header",
-                    start: "top 90%"
-                },
-                x: -50,
-                opacity: 0,
-                duration: 1
             });
 
         }, containerRef);
@@ -62,9 +65,9 @@ const Experience = () => {
     return (
         <section className="experience-section" ref={containerRef} id="experience">
             <div className="section-container">
-                <div className="exp-header">
-                    <Briefcase size={32} strokeWidth={1.5} />
-                    <h2>Experience</h2>
+                <div className="section-header">
+                    <span className="section-number">01</span>
+                    <h2 className="section-title">Experience</h2>
                 </div>
 
                 <div className="exp-grid">

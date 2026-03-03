@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PropTypes from 'prop-types';
 import './OpeningSequence.css';
 
-gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 const NameContent = ({ layerClass }) => (
     <div className={`loader-layer ${layerClass}`}>
@@ -101,7 +102,10 @@ const OpeningSequence = () => {
                     opacity: 0,
                     stagger: 0.2,
                     duration: 1.5,
-                    ease: "power3.out"
+                    ease: "power3.out",
+                    onComplete: () => {
+                        ScrollTrigger.refresh();
+                    }
                 }, "-=1.4")
         }, containerRef);
 
