@@ -1,0 +1,132 @@
+.skills-section {
+    background: #F4F4F4;
+    color: #1A1A1A;
+    padding: 15vh 5vw;
+    font-family: 'Inter', sans-serif;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8vw;
+}
+
+.sk-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.sk-header h2 {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-pill {
+    padding: 1rem 1.8rem;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: default;
+    background: transparent;
+}
+
+.skill-pill:hover {
+    background: #1A1A1A;
+    color: #F4F4F4;
+    transform: translateY(-5px);
+}
+
+.edu-half {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 4vw;
+}
+
+.edu-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: #555;
+}
+
+.edu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.edu-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.edu-date {
+    font-family: monospace;
+    color: #555;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-card h4 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.edu-role {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.edu-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 0.5rem;
+}
+
+.highlight-card {
+    background: #1A1A1A;
+    color: #F4F4F4;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.highlight-card h4 {
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+.highlight-card .edu-desc {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 1024px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .edu-half {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 4vw;
+    }
+}
