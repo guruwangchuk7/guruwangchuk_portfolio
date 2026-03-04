@@ -7,32 +7,29 @@
     /* Important for cursor floating: keep overflow visible or ensure image stays in section relative to cursor overlay */
 }
 
-/* Header UI */
-.v2-header {
+/* Shared Header UI Consistency */
+.section-header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 10vh;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 2rem;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
 }
 
-.v2-header h2 {
-    font-size: clamp(2rem, 3.5vw, 4rem);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: #F4F4F4;
-    margin: 0;
-}
-
-.v2-header-desc {
+.section-number {
     font-size: 1rem;
-    max-width: 300px;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.5;
+    font-weight: 700;
+    font-family: monospace;
+    opacity: 0.4;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    margin: 0;
 }
 
 /* List Structure */

@@ -66,7 +66,7 @@ const Skills = () => {
                 {/* ARSENAL SECTION */}
                 <div className="content-block">
                     <div className="section-header">
-                        <span className="section-number">02</span>
+                        <span className="section-number">03</span>
                         <h2 className="section-title">Technical Arsenal</h2>
                     </div>
                     <div className="skills-grid">
@@ -82,7 +82,7 @@ const Skills = () => {
                 {/* EDUCATION SECTION */}
                 <div className="content-block">
                     <div className="section-header">
-                        <span className="section-number">03</span>
+                        <span className="section-number">04</span>
                         <h2 className="section-title">Education & Accolades</h2>
                     </div>
                     <div className="education-grid">

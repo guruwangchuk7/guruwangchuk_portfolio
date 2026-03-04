@@ -102,12 +102,9 @@ const Projects = () => {
 
     return (
         <section className="projects-section-v2" ref={containerRef} id="projects">
-            <div className="v2-header">
-                <h2>SELECTED WORK</h2>
-                <div className="v2-header-desc">
-                    A curated collection of digital products and web experiences
-                    crafted with precision.
-                </div>
+            <div className="section-header">
+                <span className="section-number">02</span>
+                <h2 className="section-title">SELECTED WORK</h2>
             </div>
 
             <div className="project-list-container">
