@@ -1,16 +1,85 @@
-# React + Vite
+# Guru Wangchuk | Modern Digital Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, visually immersive portfolio developed with **React 19**, **Vite 7**, and **GSAP**. This project prioritizes sophisticated motion design, premium typography, and seamless user experiences, drawing inspiration from Awwwards-winning aesthetics.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technical Arsenal
 
-## React Compiler
+### **Core Stack**
+- **Framework:** [React 19](https://react.dev/) (Functional Components with Hooks)
+- **Build Tool:** [Vite 7](https://vitejs.dev/) (ESM-driven development)
+- **Styling:** Vanilla CSS (CSS3 Variables & Fluid Typography)
+- **Icons:** [Lucide React](https://lucide.dev/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### **Motion & Interaction**
+- **GSAP (GreenSock Animation Platform):**
+  - `ScrollTrigger` for scroll-driven reveals.
+  - `CustomEase` for tailored transition curves.
+  - Multi-layered clipping path animations for introductory sequences.
+- **Lenis Smooth Scroll:** Provides a consistent, momentum-based scrolling experience across all browsers and devices.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+- **Dynamic Opening Sequence:** A high-impact hero entry utilizing dark/light layer clipping and GSAP stagger effects.
+- **Fluid Typography:** Implementation of `clamp()` functions to ensure readability from 4K displays down to mobile devices.
+- **Adaptive Grid Layout:** A responsive architecture that transitions from desktop multi-column layouts to mobile-optimized stacks without compromising visual fidelity.
+- **Technical Arsenal & Accolades:** Interactive sections showcasing skills and achievements with a "brutalist" yet refined aesthetic.
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/
+│   ├── OpeningSequence/      # GSAP-driven hero & loading logic
+│   ├── Skills/               # Interactive "Technical Arsenal" section
+│   ├── Footer/               # Contact and social integration
+│   └── ...                   # Additional UI modules
+├── App.jsx                   # Root component & global state
+├── App.css                   # Global styles & Lenis overrides
+└── main.jsx                  # React entry point
+```
+
+---
+
+## 🛠️ Installation & Development
+
+### **Prerequisites**
+- [Node.js](https://nodejs.org/) (v18.x or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### **Getting Started**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/guruwangchuk7/guruwangchuk_portfolio.git
+   cd my-react-app
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Launch development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## ⚖️ License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+**Crafted with precision by Guru Wangchuk.**
