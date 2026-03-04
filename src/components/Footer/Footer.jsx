@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, ArrowUp } from 'lucide-react';
+import { Globe } from './Globe';
 import './Footer.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -68,14 +69,22 @@ const Footer = () => {
         <footer className="footer-section" ref={containerRef} id="footer">
             <div className="footer-container">
                 <div className="footer-top">
-                    <p className="footer-sub footer-reveal">Let's build something beautiful</p>
-                    <div className="footer-big-text-wrapper">
-                        <h2 className="footer-big-text">
-                            <a href="mailto:guruwangchuk1234@gmail.com">
-                                <span className="text-line">GET IN</span><br />
-                                <span className="text-line">TOUCH</span>
-                            </a>
-                        </h2>
+                    {/* Background Globe Container */}
+                    <div className="globe-container-wrapper">
+                        <Globe className="footer-globe" />
+                        <div className="globe-gradient-overlay"></div>
+                    </div>
+                    {/* Foreground Content */}
+                    <div className="footer-top-content">
+                        <p className="footer-sub footer-reveal">Let's build something beautiful</p>
+                        <div className="footer-big-text-wrapper">
+                            <h2 className="footer-big-text">
+                                <a href="mailto:guruwangchuk1234@gmail.com">
+                                    <span className="text-line">GET IN</span><br />
+                                    <span className="text-line">TOUCH</span>
+                                </a>
+                            </h2>
+                        </div>
                     </div>
                 </div>
 
