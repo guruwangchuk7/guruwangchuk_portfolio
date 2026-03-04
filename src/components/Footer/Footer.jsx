@@ -15,7 +15,7 @@ const Footer = () => {
         const updateClock = () => {
             const now = new Date();
             const options = {
-                timeZone: 'Asia/Kolkata',
+                timeZone: 'Asia/Thimphu',
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
