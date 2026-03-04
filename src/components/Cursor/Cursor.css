@@ -1,0 +1,33 @@
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.3s, height 0.3s, border-width 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+/* Ensure visibility on dark backgrounds (like Projects) */
+.projects-section-v2~.cursor-follower,
+.footer-section~.cursor-follower {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* On mobile, we hide it */
+@media (max-width: 768px) {
+
+    .custom-cursor,
+    .cursor-follower {
+        display: none !important;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}

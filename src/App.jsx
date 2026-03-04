@@ -7,6 +7,7 @@ import Experience from './components/Experience/Experience.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Skills from './components/Skills/Skills.jsx';
 import Footer from './components/Footer/Footer.jsx';
+import Cursor from './components/Cursor/Cursor.jsx';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -52,6 +53,7 @@ function App() {
 
   return (
     <div className="App">
+      <Cursor />
       <OpeningSequence />
       <Experience />
       <Projects />
