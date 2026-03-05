@@ -24,9 +24,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%);
-    width: 700px;
-    height: 700px;
+    transform: translate(-50%, -50%);
+    width: clamp(350px, 100vw, 700px);
+    height: clamp(350px, 100vw, 700px);
     z-index: 0;
     pointer-events: auto;
     mix-blend-mode: screen;
@@ -211,6 +211,12 @@
         text-align: center;
         margin-top: 6vh;
     }
+
+    .globe-container-wrapper {
+        width: 500px;
+        height: 500px;
+        top: 45%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -224,5 +230,11 @@
 
     .footer-sub {
         margin-bottom: 2rem;
+    }
+
+    .globe-container-wrapper {
+        width: 450px;
+        height: 450px;
+        top: 40%;
     }
 }
