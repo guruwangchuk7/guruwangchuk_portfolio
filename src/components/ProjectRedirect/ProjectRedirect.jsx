@@ -1,18 +1,31 @@
 import React, { useEffect, useRef } from 'react';
+import Lenis from 'lenis';
 import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import './ProjectRedirect.css';
 
-gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 const ProjectRedirect = ({ project, onBack }) => {
     const containerRef = useRef(null);
-    const contentRef = useRef(null);
     const bgRef = useRef(null);
+    const detailsRef = useRef(null);
 
     useEffect(() => {
         if (!project) return;
+
+        const scrollContainer = containerRef.current.querySelector('.project-scroll-container');
+
+        // Initialize local smooth scroll for Case Study
+        const lenis = new Lenis({
+            wrapper: scrollContainer,
+            content: scrollContainer.querySelector('.project-details-container').parentNode,
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            infinite: false,
+        });
 
         const ctx = gsap.context(() => {
             CustomEase.create("mainEase", "0.76, 0, 0.24, 1");
@@ -24,82 +37,204 @@ const ProjectRedirect = ({ project, onBack }) => {
             // Entry Animation
             tl.fromTo(containerRef.current,
                 { clipPath: "inset(100% 0 0 0)" },
-                { clipPath: "inset(0% 0 0 0)", duration: 1 }
+                { clipPath: "inset(0% 0 0 0)", duration: 1.2 }
             )
                 .fromTo(bgRef.current,
-                    { scale: 1.2, filter: "brightness(0)" },
-                    { scale: 1, filter: "brightness(0.4)", duration: 2 },
-                    "-=0.5"
+                    { scale: 1.4, filter: "brightness(0)" },
+                    { scale: 1, filter: "brightness(0.3)", duration: 2.5 },
+                    "-=0.8"
                 )
                 .from(".redirect-title span", {
-                    y: 100,
-                    rotate: 5,
+                    y: 120,
+                    rotate: 10,
                     opacity: 0,
-                    stagger: 0.05,
-                    duration: 1
-                }, "-=1.5")
+                    stagger: 0.04,
+                    duration: 1.5,
+                    ease: "power4.out"
+                }, "-=1.8")
                 .from(".redirect-meta > *", {
-                    y: 20,
+                    y: 30,
                     opacity: 0,
                     stagger: 0.1,
-                    duration: 0.8
-                }, "-=0.8")
-                .from(".redirect-status", {
-                    width: 0,
+                    duration: 1
+                }, "-=1.2")
+                .from(".nav-elements", {
                     opacity: 0,
-                    duration: 1.5,
-                    ease: "power4.inOut"
-                }, "-=0.5");
+                    y: -20,
+                    duration: 1
+                }, "-=1")
+                .from(".scroll-prompt", {
+                    opacity: 0,
+                    y: 20,
+                    duration: 1
+                }, "-=0.8");
+
+            // Scroll animations for details
+            const sections = gsap.utils.toArray('.detail-section');
+            sections.forEach((section) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        scroller: ".project-scroll-container",
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            });
+
+            // Progress fill animation
+            gsap.to(".progress-fill", {
+                scrollTrigger: {
+                    trigger: ".project-scroll-container",
+                    scroller: ".project-scroll-container",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true
+                },
+                scaleX: 1,
+                ease: "none"
+            });
+
+            // Sync Lenis with ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
 
         }, containerRef);
 
-        return () => ctx.revert();
+        return () => {
+            ctx.revert();
+            lenis.destroy();
+            gsap.ticker.remove(lenis.raf);
+        };
     }, [project]);
 
     if (!project) return null;
 
-    // Split title for animation
     const titleChars = project.title.split("");
 
     return (
         <div className="project-redirect-overlay" ref={containerRef}>
-            <div className="redirect-bg" ref={bgRef} style={{ backgroundImage: `url(${project.bg})` }}></div>
+            <div className="scroll-progress-bar">
+                <div className="progress-fill"></div>
+            </div>
 
-            <div className="redirect-content" ref={contentRef}>
-                <button className="back-button" onClick={onBack}>
-                    <ArrowLeft size={20} />
-                    <span>BACK TO WORK</span>
-                </button>
+            <div className="redirect-bg-wrapper">
+                <div className="redirect-bg" ref={bgRef} style={{ backgroundImage: `url(${project.bg})` }}></div>
+                <div className="bg-overlay-gradient"></div>
+            </div>
 
-                <div className="redirect-center">
-                    <div className="redirect-idx">0{project.id}</div>
-                    <h1 className="redirect-title">
-                        {titleChars.map((char, i) => (
-                            <span key={i} style={{ display: 'inline-block' }}>{char === " " ? "\u00A0" : char}</span>
-                        ))}
-                    </h1>
-                    <div className="redirect-meta">
-                        <span className="tech-stack">{project.tech}</span>
-                        <div className="status-container">
-                            <div className="redirect-status"></div>
-                            <span className="status-text">INITIALIZING SECURE GATEWAY...</span>
+            <div className="project-scroll-container" data-lenis-prevent>
+                {/* Hero Section */}
+                <section className="project-hero">
+                    <div className="nav-elements">
+                        <button className="back-button" onClick={onBack}>
+                            <ArrowLeft size={18} />
+                            <span>RETURN TO ARCHIVE</span>
+                        </button>
+                        <div className="project-year">2024 / CASE STUDY</div>
+                    </div>
+
+                    <div className="hero-center">
+                        <div className="redirect-idx">0{project.id}</div>
+                        <h1 className="redirect-title">
+                            {titleChars.map((char, i) => (
+                                <span key={i} style={{ display: 'inline-block' }}>{char === " " ? "\u00A0" : char}</span>
+                            ))}
+                        </h1>
+                        <div className="redirect-meta">
+                            <span className="tech-stack">{project.tech}</span>
+                            <div className="status-container">
+                                <div className="redirect-status"></div>
+                                <span className="status-text">SYSTEMS OPERATIONAL</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="redirect-footer">
-                    <div className="footer-item">
-                        <span className="label">PREPARING</span>
-                        <span className="value">DIGITAL EXPERIENCE</span>
+                    <div className="scroll-prompt">
+                        <div className="mouse-icon">
+                            <div className="wheel"></div>
+                        </div>
+                        <span>SCROLL TO EXPLORE CASE STUDY</span>
                     </div>
-                    <div className="footer-item">
-                        <span className="label">LOCATION</span>
-                        <span className="value">CLOUD ENGINE</span>
-                    </div>
-                    <div className="redirect-action">
-                        <span className="action-text">OPENING PROJECT</span>
-                        <ExternalLink size={16} />
-                    </div>
+                </section>
+
+                {/* Content Sections */}
+                <div className="project-details-container" ref={detailsRef}>
+                    <section className="detail-section intro-section">
+                        <div className="section-grid">
+                            <div className="grid-left">
+                                <h2 className="detail-heading">THE VISION</h2>
+                            </div>
+                            <div className="grid-right">
+                                <p className="detail-description large">
+                                    Engineering a seamless integration between {project.tech.split(' / ')[0]} and user-centric design principles.
+                                    This project redefines how we interact with digital high-performance systems.
+                                </p>
+                                <div className="meta-stats">
+                                    <div className="stat">
+                                        <span className="stat-label">ROLE</span>
+                                        <span className="stat-value">Lead Design Engineer</span>
+                                    </div>
+                                    <div className="stat">
+                                        <span className="stat-label">DURATION</span>
+                                        <span className="stat-value">12 Weeks / Q1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="detail-section image-highlight">
+                        <div className="highlight-frame">
+                            <img src={project.bg} alt="Project Highlight" />
+                            <div className="frame-border"></div>
+                        </div>
+                    </section>
+
+                    <section className="detail-section execution">
+                        <div className="section-grid">
+                            <div className="grid-left">
+                                <h2 className="detail-heading">EXECUTION</h2>
+                            </div>
+                            <div className="grid-right">
+                                <div className="process-list">
+                                    <div className="process-item">
+                                        <h3>01 / ARCHITECTURE</h3>
+                                        <p>Developed a robust foundation using {project.tech}, ensuring maximum scalability and fluid performance across all interaction points.</p>
+                                    </div>
+                                    <div className="process-item">
+                                        <h3>02 / INTERACTION</h3>
+                                        <p>Implemented sophisticated micro-interactions that provide tactile feedback, elevating the overall sensory experience of the application.</p>
+                                    </div>
+                                    <div className="process-item">
+                                        <h3>03 / DEPLOYMENT</h3>
+                                        <p>Leveraged edge computing and optimized asset delivery to maintain a consistent sub-second response time globally.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="case-study-footer">
+                        <div className="footer-line"></div>
+                        <div className="footer-content">
+                            <div className="footer-left">
+                                <h3>INTERESTED IN THE WORK?</h3>
+                                <p>Let's discuss how we can build something exceptional together.</p>
+                            </div>
+                            <button className="visit-site-btn">
+                                <span>VISIT LIVE PROJECT</span>
+                                <ExternalLink size={18} />
+                            </button>
+                        </div>
+                        <div className="copyright">© 2024 GURU WANGCHUK / PORTFOLIO v2.0</div>
+                    </footer>
                 </div>
             </div>
         </div>

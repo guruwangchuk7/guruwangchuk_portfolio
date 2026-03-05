@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -27,6 +29,8 @@ function App() {
       touchMultiplier: 2,
       infinite: false,
     });
+
+    lenisRef.current = lenis;
 
     // Synchronize Lenis with ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
@@ -56,8 +60,10 @@ function App() {
   useEffect(() => {
     if (selectedProject) {
       document.body.style.overflow = 'hidden';
+      lenisRef.current?.stop();
     } else {
       document.body.style.overflow = 'auto';
+      lenisRef.current?.start();
     }
   }, [selectedProject]);
 
