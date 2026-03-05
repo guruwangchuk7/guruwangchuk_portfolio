@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
     {
-        company: "Saidpiece Architecture",
+        company: "Saidpiece architects",
         role: "Full Stack Engineer",
         date: "May 2025 - Current",
         location: "Thimphu, Bhutan",

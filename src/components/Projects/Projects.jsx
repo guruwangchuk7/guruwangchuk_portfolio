@@ -23,7 +23,7 @@ const projectsData = [
         bg: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=1000&auto=format&fit=crop"
     },
     {
-        title: "Saidpiece",
+        title: "Saidpiece website",
         tech: "React / GSAP",
         bg: "https://images.unsplash.com/photo-1627393100177-b4297e5b6ffd?q=80&w=1000&auto=format&fit=crop"
     }

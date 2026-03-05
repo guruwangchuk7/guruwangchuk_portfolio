@@ -70,7 +70,7 @@
 
 /* Typography Text Frame */
 .proj-title-text {
-    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 700;
     text-transform: uppercase;
     color: rgba(244, 244, 244, 0.4);
@@ -173,7 +173,7 @@
     }
 
     .proj-title-text {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+        font-size: 1.8rem;
     }
 }
 
@@ -187,6 +187,6 @@
     }
 
     .proj-title-text {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
 }
