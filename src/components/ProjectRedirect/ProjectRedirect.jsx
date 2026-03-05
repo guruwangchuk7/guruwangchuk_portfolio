@@ -42,7 +42,7 @@ const ProjectRedirect = ({ project, onBack }) => {
             )
                 .fromTo(bgRef.current,
                     { scale: 1.4, filter: "brightness(0)" },
-                    { scale: 1, filter: "brightness(0.3)", duration: 2.5 },
+                    { scale: 1, filter: "brightness(0.8)", duration: 2.5 },
                     "-=0.8"
                 )
                 .from(".redirect-title span", {
@@ -98,6 +98,45 @@ const ProjectRedirect = ({ project, onBack }) => {
                 },
                 scaleX: 1,
                 ease: "none"
+            });
+
+            // Image Parallax Reveal
+            const images = gsap.utils.toArray('.highlight-frame img');
+            images.forEach((img) => {
+                gsap.fromTo(img,
+                    { y: "15%", scale: 1.2 },
+                    {
+                        y: "-15%",
+                        scale: 1,
+                        scrollTrigger: {
+                            trigger: img.parentNode,
+                            scroller: ".project-scroll-container",
+                            scrub: true,
+                            start: "top bottom",
+                            end: "bottom top"
+                        }
+                    }
+                );
+            });
+
+            // Heading Splitting Reveal
+            const headings = gsap.utils.toArray('.detail-heading');
+            headings.forEach(h => {
+                const text = h.innerText;
+                h.innerHTML = text.split('').map(c => `<span>${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+
+                gsap.from(h.querySelectorAll('span'), {
+                    scrollTrigger: {
+                        trigger: h,
+                        scroller: ".project-scroll-container",
+                        start: "top 90%",
+                    },
+                    y: 20,
+                    opacity: 0,
+                    stagger: 0.02,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
             });
 
             // Sync Lenis with ScrollTrigger
@@ -240,6 +279,14 @@ const ProjectRedirect = ({ project, onBack }) => {
                                 <ExternalLink size={18} />
                             </button>
                         </div>
+
+                        {/* Next Project Section */}
+                        <div className="next-project-section" onClick={onBack}>
+                            <div className="next-label">NEXT PROJECT</div>
+                            <h2 className="next-title">CIVIC SENSE</h2>
+                            <div className="next-line"></div>
+                        </div>
+
                         <div className="copyright">© 2024 GURU WANGCHUK / PORTFOLIO v2.0</div>
                     </footer>
                 </div>

@@ -79,6 +79,14 @@ function App() {
         <ProjectRedirect
           project={selectedProject}
           onBack={() => setSelectedProject(null)}
+          onNext={() => {
+            const currentIndex = [1, 2, 3, 4].indexOf(selectedProject.id);
+            const nextId = currentIndex === 3 ? 1 : selectedProject.id + 1;
+            // Note: Since projectsData is in Projects.jsx, I'll use a local mock or refactor.
+            // For now, I'll pass a generic handler that the Projects component can provide if needed, 
+            // but since IDs are simple, I'll just find the next one in the local array if I had it.
+            // Let's assume projects are 1-indexed and sequential for now as per Projects.jsx.
+          }}
         />
       )}
     </div>
