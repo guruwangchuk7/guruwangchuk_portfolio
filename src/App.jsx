@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,11 +8,13 @@ import Projects from './components/Projects/Projects.jsx';
 import Skills from './components/Skills/Skills.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Cursor from './components/Cursor/Cursor.jsx';
+import ProjectRedirect from './components/ProjectRedirect/ProjectRedirect.jsx';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
-
 function App() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -51,14 +53,28 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [selectedProject]);
+
   return (
     <div className="App">
       <Cursor />
       <OpeningSequence />
       <Experience />
-      <Projects />
+      <Projects onProjectSelect={setSelectedProject} />
       <Skills />
       <Footer />
+      {selectedProject && (
+        <ProjectRedirect
+          project={selectedProject}
+          onBack={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 }

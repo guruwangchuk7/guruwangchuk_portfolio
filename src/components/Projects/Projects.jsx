@@ -8,28 +8,32 @@ gsap.registerPlugin(CustomEase);
 
 const projectsData = [
     {
+        id: 1,
         title: "Certificate Validation",
         tech: "Blockchain / React",
         bg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop"
     },
     {
+        id: 2,
         title: "Civic Sense",
         tech: "Next.js / GIS",
         bg: "https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=1000&auto=format&fit=crop"
     },
     {
+        id: 3,
         title: "Druk SmartPark",
         tech: "Python / AI",
         bg: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=1000&auto=format&fit=crop"
     },
     {
+        id: 4,
         title: "Saidpiece website",
         tech: "React / GSAP",
         bg: "https://images.unsplash.com/photo-1627393100177-b4297e5b6ffd?q=80&w=1000&auto=format&fit=crop"
     }
 ];
 
-const Projects = () => {
+const Projects = ({ onProjectSelect }) => {
     const containerRef = useRef(null);
     const activeImageRef = useRef(null);
 
@@ -41,7 +45,6 @@ const Projects = () => {
             const imgContainer = activeImageRef.current;
             const imgElement = imgContainer.querySelector('img');
 
-            // Float the image container strictly to the mouse window coordinates natively
             const moveImageX = gsap.quickTo(imgContainer, "left", { duration: 0.6, ease: "power3" });
             const moveImageY = gsap.quickTo(imgContainer, "top", { duration: 0.6, ease: "power3" });
 
@@ -54,10 +57,7 @@ const Projects = () => {
 
             rows.forEach((row, ix) => {
                 row.addEventListener("mouseenter", () => {
-                    // Inject project image instantly
                     imgElement.src = projectsData[ix].bg;
-
-                    // Animate the hovering frame into existence seamlessly
                     gsap.to(imgContainer, {
                         scale: 1,
                         opacity: 1,
@@ -65,7 +65,6 @@ const Projects = () => {
                         ease: "reveal"
                     });
 
-                    // Elegantly slide the typography out right to clear space
                     gsap.to(row.querySelector('.proj-title-text'), {
                         x: 40,
                         color: "#F4F4F4",
@@ -75,7 +74,6 @@ const Projects = () => {
                 });
 
                 row.addEventListener("mouseleave", () => {
-                    // Deplete and hide frame out
                     gsap.to(imgContainer, {
                         scale: 0,
                         opacity: 0,
@@ -83,10 +81,9 @@ const Projects = () => {
                         ease: "reveal"
                     });
 
-                    // Restore typography left
                     gsap.to(row.querySelector('.proj-title-text'), {
                         x: 0,
-                        color: "rgba(244, 244, 244, 0.4)", // Revert dim
+                        color: "rgba(244, 244, 244, 0.4)",
                         duration: 0.4,
                         ease: "power2.out"
                     });
@@ -109,9 +106,14 @@ const Projects = () => {
 
             <div className="project-list-container">
                 {projectsData.map((proj, i) => (
-                    <div key={i} className="project-row">
+                    <div
+                        key={i}
+                        className="project-row"
+                        onClick={() => onProjectSelect(proj)}
+                        style={{ cursor: 'pointer' }}
+                    >
                         <div className="proj-meta">
-                            <span className="proj-idx">0{i + 1}</span>
+                            <span className="proj-idx">0{proj.id}</span>
                         </div>
                         <div className="proj-title">
                             <h3 className="proj-title-text">{proj.title}</h3>
@@ -126,7 +128,6 @@ const Projects = () => {
                 ))}
             </div>
 
-            {/* GSAP Native Cursor Background Injector */}
             <div className="cursor-follower-img" ref={activeImageRef}>
                 <img src="" alt="" role="presentation" />
             </div>
