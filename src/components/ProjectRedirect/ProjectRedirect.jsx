@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
+import Silk from '../Silk/Silk.jsx';
 import './ProjectRedirect.css';
 
 gsap.registerPlugin(CustomEase, ScrollTrigger);
@@ -124,8 +125,18 @@ const ProjectRedirect = ({ project, onBack }) => {
                 <div className="progress-fill"></div>
             </div>
 
-            <div className="redirect-bg-wrapper">
-                <div className="redirect-bg" ref={bgRef} style={{ backgroundImage: `url(${project.bg})` }}></div>
+            <div className="redirect-bg-wrapper" ref={bgRef}>
+                {project.title === "Certificate Validation" ? (
+                    <Silk
+                        speed={5}
+                        scale={1}
+                        color="#7B7481"
+                        noiseIntensity={1.5}
+                        rotation={0}
+                    />
+                ) : (
+                    <div className="redirect-bg" style={{ backgroundImage: `url(${project.bg})` }}></div>
+                )}
                 <div className="bg-overlay-gradient"></div>
             </div>
 
