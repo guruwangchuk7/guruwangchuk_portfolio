@@ -126,17 +126,13 @@ const ProjectRedirect = ({ project, onBack }) => {
             </div>
 
             <div className="redirect-bg-wrapper" ref={bgRef}>
-                {project.title === "Certificate Validation" ? (
-                    <Silk
-                        speed={5}
-                        scale={1}
-                        color="#7B7481"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                    />
-                ) : (
-                    <div className="redirect-bg" style={{ backgroundImage: `url(${project.bg})` }}></div>
-                )}
+                <Silk
+                    speed={5}
+                    scale={1}
+                    color="#7B7481"
+                    noiseIntensity={1.5}
+                    rotation={(project.id - 1) * 90} // Unique orientation for each project
+                />
                 <div className="bg-overlay-gradient"></div>
             </div>
 
