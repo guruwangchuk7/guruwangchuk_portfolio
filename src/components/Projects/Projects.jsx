@@ -6,18 +6,22 @@ import './Projects.css';
 
 gsap.registerPlugin(CustomEase);
 
+import certImg from '../../assets/project-photos/blockchain project.png';
+import civicImg from '../../assets/project-photos/civic.png';
+import saidpieceImg from '../../assets/project-photos/saidpiece project.png';
+
 const projectsData = [
     {
         id: 1,
         title: "Certificate Validation",
         tech: "Blockchain / React",
-        bg: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop"
+        bg: certImg
     },
     {
         id: 2,
         title: "Civic Sense",
         tech: "Next.js / GIS",
-        bg: "https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=1000&auto=format&fit=crop"
+        bg: civicImg
     },
     {
         id: 3,
@@ -29,7 +33,7 @@ const projectsData = [
         id: 4,
         title: "Saidpiece website",
         tech: "React / GSAP",
-        bg: "https://images.unsplash.com/photo-1627393100177-b4297e5b6ffd?q=80&w=1000&auto=format&fit=crop"
+        bg: saidpieceImg
     }
 ];
 
