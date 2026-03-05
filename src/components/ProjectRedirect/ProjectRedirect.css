@@ -292,17 +292,23 @@
 
 .highlight-frame {
     width: 100%;
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-    border-radius: 2px;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 2vw;
 }
 
 .highlight-frame img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.8);
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    filter: brightness(1);
+    /* Full clarity for professional showcase */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
 }
 
 .process-list {
