@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import createGlobe from "cobe";
 
 export function Globe({ className }) {
     const canvasRef = useRef();
     const pointerInteracting = useRef(null);
     const pointerInteractionMovement = useRef(0);
-    const [r, setR] = useState(0);
+    const r = useRef(0);
 
     useEffect(() => {
         let phi = 0;
@@ -39,7 +39,7 @@ export function Globe({ className }) {
                 if (!pointerInteracting.current) {
                     phi += 0.003;
                 }
-                state.phi = phi + r;
+                state.phi = phi + r.current;
                 state.width = width * 2;
                 state.height = width * 2;
             }
@@ -53,7 +53,7 @@ export function Globe({ className }) {
             globe.destroy();
             window.removeEventListener("resize", onResize);
         };
-    }, [r]);
+    }, []);
 
     return (
         <div
@@ -85,14 +85,14 @@ export function Globe({ className }) {
                     if (pointerInteracting.current !== null) {
                         const delta = e.clientX - pointerInteracting.current;
                         pointerInteractionMovement.current = delta;
-                        setR(delta / 200);
+                        r.current = delta / 200;
                     }
                 }}
                 onTouchMove={(e) => {
                     if (pointerInteracting.current !== null && e.touches[0]) {
                         const delta = e.touches[0].clientX - pointerInteracting.current;
                         pointerInteractionMovement.current = delta;
-                        setR(delta / 100);
+                        r.current = delta / 100;
                     }
                 }}
                 style={{
