@@ -15,57 +15,57 @@ export const projectsData = [
     {
         id: 1,
         title: "Certificate System",
-        tech: "Blockchain / Solidity",
+        tech: "Scaffold-ETH / Solidity / IPFS / MySQL",
         bg: certImg,
-        role: "Blockchain Developer",
+        role: "Full Stack DApp Developer",
         duration: "16 Weeks / 2024",
-        vision: "Developing a tamper-proof verification ecosystem for academic institutions using decentralized ledger technology to eliminate certification fraud.",
+        vision: "A full-stack decentralized ecosystem for tamper-proof academic verification, utilizing SHA256 hashing and IPFS to ensure absolute document integrity.",
         execution: [
-            "Architected a secure verification workflow on the blockchain to ensure data transparency and immutable record keeping.",
-            "Engineered a high-performance React frontend for seamless certificate issuance and real-time public validation.",
-            "Implemented smart contract protocols to automate the verification process with maximum efficiency."
+            "Architected a hybrid infrastructure combining decentralized IPFS storage with a MySQL metadata layer for high-performance student management.",
+            "Implemented an integrity engine using SHA256 checksums to create immutable cryptographic signatures, making credential forgery mathematically impossible.",
+            "Engineered a secure issuance workflow leveraging the Scaffold-ETH 2 framework and Pinata for reliable document pinning and real-time validation."
         ]
     },
     {
         id: 2,
         title: "CivicPulse",
-        tech: "Next.js / GIS / Node",
+        tech: "Next.js / Leaflet / MySQL / Supabase",
         bg: civicImg,
         role: "Full Stack Lead",
         duration: "14 Weeks / 2024",
-        vision: "A real-time civic engagement platform bridging the communication gap between citizens and local authorities via interactive mapping.",
+        vision: "A cutting-edge civic engagement platform streamlining urban infrastructure reporting via a real-time, map-based interface and gamified community action.",
         execution: [
-            "Integrated advanced GIS mapping for real-time reporting of urban infrastructure issues like hazards and trash.",
-            "Built a powerful administrative dashboard to track and manage complaint resolution workflows efficiently.",
-            "Designed a responsive, mobile-first experience to empower citizens to engage with their local government on the go."
+            "Architected a high-performance Next.js 14 application integrated with Leaflet.js for precision map-pinning, real-time reporting, and 'Civic Hero' gamification.",
+            "Developed a robust administrative dashboard featuring a priority scoring engine and automated routing to optimize municipal resource allocation.",
+            "Engineered a secure hybrid backend using MySQL for structured data and Supabase for authentication, storage, and real-time AI assistant logic."
         ]
     },
     {
         id: 3,
         title: "Druk SmartPark",
-        tech: "Python / AI / React",
+        tech: "Python / Django / Next.js / Flutter / AI",
         bg: drukImg,
-        role: "Data & AI Engineer",
+        role: "Lead Developer & AI Engineer",
         duration: "Ongoing / 2025",
-        vision: "Transforming urban mobility with AI-driven parking management, featuring real-time KPI tracking and predictive analytics.",
+        vision: "A next-generation urban mobility platform for Thimphu Municipal, digitizing the end-to-end parking lifecycle through OCR, real-time data streaming, and predictive analytics.",
         execution: [
-            "Implemented real-time monitoring for active parking sessions, revenue streams, and overall system health.",
-            "Developed AI models for traffic density analysis and automated detection of parking violations.",
-            "Engineered automated officer dispatching systems based on real-time violation triggers and zone performance."
+            "Architected a distributed ecosystem comprising a Django REST backend, a Next.js administrative dashboard, and a Flutter mobile app for field operations.",
+            "Implemented OCR-powered license plate recognition and real-time KPI monitoring for live tracking of revenue, active sessions, and system health.",
+            "Developed AI-driven insights for predictive traffic density optimization and automated violation detection with integrated officer dispatching."
         ]
     },
     {
         id: 4,
-        title: "Saidpiece Portfolio",
-        tech: "React / GSAP / Design",
+        title: "Saidpiece Architect",
+        tech: "React 19 / GSAP / Supabase / Tailwind v4",
         bg: saidpieceImg,
-        role: "Team Lead • Full Stack",
+        role: "Lead Full Stack Developer",
         duration: "8 Weeks / 2025",
-        vision: "Crafting a premium digital presence for an elite architectural firm, focusing on high-end visual storytelling and performance.",
+        vision: "A premium, immersive web application for a Bhutan-based architecture studio, combining high-end visual storytelling with e-commerce, blogging, and a robust administrative backend.",
         execution: [
-            "Led the end-to-end development cycle as Project Lead, coordinating cross-functional tasks for timely delivery.",
-            "Implemented sophisticated cinematic animations using GSAP and React to mirror the firm's architectural elegance.",
-            "Optimized asset delivery and SEO strategies to ensure a global-reach presence for high-end architecture projects."
+            "Architected a high-performance React 19 ecosystem with Vite, integrating GSAP and Framer Motion for immersive scroll-triggered reveals and magnetic cursor interactions.",
+            "Developed a comprehensive e-commerce store with persistent cart management and a secure administrative dashboard for real-time project and content updates.",
+            "Implemented a robust backend-as-a-service using Supabase for PostgreSQL database management, secure authentication, and high-resolution image storage."
         ]
     }
 ];

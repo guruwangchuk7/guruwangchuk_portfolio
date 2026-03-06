@@ -19,7 +19,7 @@ const Skills = ({ onArsenalSelect }) => {
         },
         {
             id: 'backend',
-            title: 'Backend Architecture',
+            title: 'Backend Architect',
             icon: <Server className="cat-icon" />,
             skills: ['Node.js', 'PHP', 'Laravel', 'Python'],
             description: 'Building robust APIs and scalable server-side systems with a focus on performance.'
