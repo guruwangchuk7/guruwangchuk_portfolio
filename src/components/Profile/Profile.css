@@ -87,8 +87,17 @@
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
+}
+
+.profile-subheading {
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 500;
+    color: rgba(244, 244, 244, 0.7);
+    margin-bottom: 2.5rem;
+    display: block;
+    letter-spacing: 0.1em;
 }
 
 .profile-bio {

@@ -76,10 +76,11 @@ const Profile = () => {
                         <div className="profile-text">
                             <span className="profile-intro-tag">THE PERSON BEHIND THE CODE</span>
                             <h2 className="profile-heading">Full Stack & <br /> Blockchain Developer</h2>
+                            <p className="profile-subheading">Startup Owner of Kodadev</p>
                             <p className="profile-bio">
                                 I am Guru Wangchuk, a developer based in Chandigarh, originally from Bhutan. 
-                                My approach to engineering is rooted in the intersection of technical 
-                                excellence and intentional design. 
+                                My approach to engineering is 
+                                rooted in the intersection of technical excellence and intentional design. 
                             </p>
                             <p className="profile-bio">
                                 Whether I am architecting secure blockchain validation systems or 
