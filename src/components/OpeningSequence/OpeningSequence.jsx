@@ -117,6 +117,7 @@ const OpeningSequence = () => {
                 <nav className="nav-bar">
                     <div className="header-role" style={{ opacity: 0 }}>FULL STACK ENGINEER</div>
                     <div className="nav-links">
+                        <a href="#about">About</a>
                         <a href="#experience">Experience</a>
                         <a href="#projects">Work</a>
                         <a href="#skills">Arsenal</a>
@@ -125,7 +126,7 @@ const OpeningSequence = () => {
                 </nav>
 
                 <div className="hero-introduction">
-                    <h1>Full Stack Developer <br /></h1>
+                    <h1>Building scalable and impactful digital solutions.</h1>
                     <p>
                         Specializing in high-performance React ecosystems and robust full-stack architectures. 
                         Currently leading end-to-end development at Saidpiece Architecture and 

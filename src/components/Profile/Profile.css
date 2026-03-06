@@ -1,0 +1,169 @@
+.profile-section {
+    background: #1A1A1A;
+    color: #F4F4F4;
+    padding: 20vh 5vw;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.profile-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12vw;
+    align-items: stretch;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 100%;
+    /* Keep 4:5 or 3:4 aspect ratio for the portrait frame */
+    aspect-ratio: 4 / 5;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #252525;
+}
+
+.profile-img {
+    width: 100%;
+    height: 120%; /* Extra height for parallax */
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.2) contrast(1.1) brightness(0.9);
+    transition: filter 0.5s ease;
+}
+
+.profile-image-wrapper:hover .profile-img {
+    filter: sepia(0) contrast(1) brightness(1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.profile-intro-tag {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: rgba(244, 244, 244, 0.4);
+    letter-spacing: 0.2em;
+    display: block;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.profile-heading {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.profile-bio {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    line-height: 1.6;
+    color: rgba(244, 244, 244, 0.6);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 4rem;
+    margin-top: auto; /* Pushes the stats to the absolute bottom perfectly */
+    border-top: 1px solid rgba(244, 244, 244, 0.1);
+    padding-top: 2rem;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #F4F4F4;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: rgba(244, 244, 244, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 8vh;
+    }
+    
+    .profile-image-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .profile-content {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .profile-bio {
+        margin: 0 auto 2rem auto;
+    }
+    
+    .profile-stats {
+        margin-top: 3rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-heading {
+        font-size: 2.5rem;
+    }
+    
+    .profile-stats {
+        gap: 2rem;
+    }
+    
+    .stat-num {
+        font-size: 2rem;
+    }
+}

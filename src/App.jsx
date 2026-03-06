@@ -3,6 +3,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import OpeningSequence from './components/OpeningSequence/OpeningSequence.jsx';
+import Profile from './components/Profile/Profile.jsx';
 import Experience from './components/Experience/Experience.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Skills from './components/Skills/Skills.jsx';
@@ -71,6 +72,7 @@ function App() {
     <div className="App">
       <Cursor />
       <OpeningSequence />
+      <Profile />
       <Experience />
       <Projects onProjectSelect={setSelectedProject} />
       <Skills />
