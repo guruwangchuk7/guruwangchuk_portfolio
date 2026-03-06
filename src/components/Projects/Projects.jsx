@@ -9,6 +9,7 @@ gsap.registerPlugin(CustomEase);
 import certImg from '../../assets/project-photos/blockchain project.png';
 import civicImg from '../../assets/project-photos/civic.png';
 import saidpieceImg from '../../assets/project-photos/saidpiece project.png';
+import drukImg from '../../assets/project-photos/druk.png';
 
 export const projectsData = [
     {
@@ -43,7 +44,7 @@ export const projectsData = [
         id: 3,
         title: "Druk SmartPark",
         tech: "Python / AI / React",
-        bg: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=1000&auto=format&fit=crop",
+        bg: drukImg,
         role: "Data & AI Engineer",
         duration: "Ongoing / 2025",
         vision: "Transforming urban mobility with AI-driven parking management, featuring real-time KPI tracking and predictive analytics.",
