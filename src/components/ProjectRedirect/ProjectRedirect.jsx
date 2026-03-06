@@ -9,7 +9,7 @@ import './ProjectRedirect.css';
 
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
-const ProjectRedirect = ({ project, onBack }) => {
+const ProjectRedirect = ({ project, onBack, onNext, nextProjectTitle }) => {
     const containerRef = useRef(null);
     const bgRef = useRef(null);
     const detailsRef = useRef(null);
@@ -18,6 +18,9 @@ const ProjectRedirect = ({ project, onBack }) => {
         if (!project) return;
 
         const scrollContainer = containerRef.current.querySelector('.project-scroll-container');
+        if (scrollContainer) {
+            scrollContainer.scrollTop = 0;
+        }
 
         // Initialize local smooth scroll for Case Study
         const lenis = new Lenis({
@@ -170,7 +173,7 @@ const ProjectRedirect = ({ project, onBack }) => {
                     scale={1}
                     color="#7B7481"
                     noiseIntensity={1.5}
-                    rotation={(project.id - 1) * 90} // Unique orientation for each project
+                    rotation={typeof project.id === 'number' ? (project.id - 1) * 90 : 45} // Unique orientation for each project
                 />
                 <div className="bg-overlay-gradient"></div>
             </div>
@@ -187,7 +190,7 @@ const ProjectRedirect = ({ project, onBack }) => {
                     </div>
 
                     <div className="hero-center">
-                        <div className="redirect-idx">0{project.id}</div>
+                        <div className="redirect-idx">{typeof project.id === 'string' ? "SKL" : `0${project.id}`}</div>
                         <h1 className="redirect-title">
                             {titleChars.map((char, i) => (
                                 <span key={i} style={{ display: 'inline-block' }}>{char === " " ? "\u00A0" : char}</span>
@@ -235,12 +238,14 @@ const ProjectRedirect = ({ project, onBack }) => {
                         </div>
                     </section>
 
-                    <section className="detail-section image-highlight">
-                        <div className="highlight-frame">
-                            <img src={project.bg} alt="Project Highlight" />
-                            <div className="frame-border"></div>
-                        </div>
-                    </section>
+                    {project.bg && (
+                        <section className="detail-section image-highlight">
+                            <div className="highlight-frame">
+                                <img src={project.bg} alt="Project Highlight" />
+                                <div className="frame-border"></div>
+                            </div>
+                        </section>
+                    )}
 
                     <section className="detail-section execution">
                         <div className="section-grid">
@@ -290,10 +295,16 @@ const ProjectRedirect = ({ project, onBack }) => {
                             </button>
                         </div>
 
-                        {/* Next Project Section */}
-                        <div className="next-project-section" onClick={onBack}>
-                            <div className="next-label">NEXT PROJECT</div>
-                            <h2 className="next-title">CIVIC SENSE</h2>
+                        {/* Next Section / Contact Button */}
+                        <div className="next-project-section" onClick={() => {
+                            if (typeof project.id === 'string') {
+                                window.location.href = "mailto:guruwangchuk1234@gmail.com?subject=Interested in your engineering work";
+                            } else {
+                                onNext ? onNext() : onBack();
+                            }
+                        }}>
+                            <div className="next-label">{typeof project.id === 'string' ? "GET IN TOUCH" : "NEXT PROJECT"}</div>
+                            <h2 className="next-title">{typeof project.id === 'string' ? "SEND AN EMAIL" : (nextProjectTitle || "CONTINUE EXPLORING")}</h2>
                             <div className="next-line"></div>
                         </div>
 

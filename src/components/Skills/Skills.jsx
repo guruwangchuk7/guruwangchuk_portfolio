@@ -6,7 +6,7 @@ import './Skills.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Skills = () => {
+const Skills = ({ onArsenalSelect }) => {
     const containerRef = useRef(null);
 
     const arsenalCategories = [
@@ -46,7 +46,7 @@ const Skills = () => {
 
             // Target Each Content Block
             const blocks = gsap.utils.toArray('.content-block');
-            
+
             blocks.forEach((block) => {
                 const header = block.querySelector('.section-header');
                 const grid = block.querySelector('.arsenal-grid, .education-grid');
@@ -98,13 +98,50 @@ const Skills = () => {
                 <div className="content-block">
                     <div className="section-header">
                         <span className="section-number">03</span>
-                        <h2 className="section-title">Technical Arsenal</h2>
+                        <h2 className="section-title">Technology Stack</h2>
                         <p className="section-subtitle">Multi-disciplinary skillset from core low-level bits to high-level reactive interfaces.</p>
                     </div>
-                    
+
                     <div className="arsenal-grid">
                         {arsenalCategories.map((category) => (
-                            <div key={category.id} className={`arsenal-card ${category.id}`}>
+                            <div 
+                                key={category.id} 
+                                className={`arsenal-card hover-click ${category.id}`}
+                                tabIndex="0"
+                                role="button"
+                                aria-label={`View ${category.title} details`}
+                                onClick={() => {
+                                    if(onArsenalSelect) {
+                                        onArsenalSelect({
+                                            id: `skill-${category.id}`,
+                                            title: category.title,
+                                            tech: category.skills.join(' / '),
+                                            duration: 'Core Expertise',
+                                            bg: null,
+                                            vision: category.description,
+                                            role: category.title.toUpperCase() + " SPECIALIST",
+                                            execution: category.skills.map(skill => `Proficiency and integrated application of ${skill} within modern software environments.`)
+                                        });
+                                    }
+                                }}
+                                onKeyDown={(e) => { 
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        if(onArsenalSelect) {
+                                            onArsenalSelect({
+                                                id: `skill-${category.id}`,
+                                                title: category.title,
+                                                tech: category.skills.join(' / '),
+                                                duration: 'Core Expertise',
+                                                bg: null,
+                                                vision: category.description,
+                                                role: category.title.toUpperCase() + " SPECIALIST",
+                                                execution: category.skills.map(skill => `Proficiency and integrated application of ${skill} within modern software environments.`)
+                                            });
+                                        }
+                                    }
+                                }}
+                            >
                                 <div className="card-top">
                                     <div className="icon-wrapper">
                                         {category.icon}
@@ -132,7 +169,7 @@ const Skills = () => {
                         <h2 className="section-title">Academic & Career</h2>
                         <p className="section-subtitle">A synthesis of academic rigor and high-stakes professional engineering.</p>
                     </div>
-                    
+
                     <div className="education-grid">
                         <div className="edu-card career-highlight">
                             <div className="edu-header">
@@ -154,7 +191,7 @@ const Skills = () => {
 
                         <div className="edu-card achievements-card">
                             <div className="edu-header">
-                                <h3>Accolades</h3>
+                                <h3>Awards & Recognition</h3>
                             </div>
                             <div className="achievements-list">
                                 <div className="achievement">

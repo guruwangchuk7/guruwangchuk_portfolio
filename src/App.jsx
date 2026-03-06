@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import OpeningSequence from './components/OpeningSequence/OpeningSequence.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Experience from './components/Experience/Experience.jsx';
-import Projects from './components/Projects/Projects.jsx';
+import Projects, { projectsData } from './components/Projects/Projects.jsx';
 import Skills from './components/Skills/Skills.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Cursor from './components/Cursor/Cursor.jsx';
@@ -75,22 +75,32 @@ function App() {
       <Profile />
       <Experience />
       <Projects onProjectSelect={setSelectedProject} />
-      <Skills />
+      <Skills onArsenalSelect={setSelectedProject}/>
       <Footer />
-      {selectedProject && (
-        <ProjectRedirect
-          project={selectedProject}
-          onBack={() => setSelectedProject(null)}
-          onNext={() => {
-            const currentIndex = [1, 2, 3, 4].indexOf(selectedProject.id);
-            const nextId = currentIndex === 3 ? 1 : selectedProject.id + 1;
-            // Note: Since projectsData is in Projects.jsx, I'll use a local mock or refactor.
-            // For now, I'll pass a generic handler that the Projects component can provide if needed, 
-            // but since IDs are simple, I'll just find the next one in the local array if I had it.
-            // Let's assume projects are 1-indexed and sequential for now as per Projects.jsx.
-          }}
-        />
-      )}
+      {selectedProject && (() => {
+        let nextProjectTitle = "";
+        let onNextHandler = null;
+        
+        if (typeof selectedProject.id === 'number') {
+          const currentIndex = projectsData.findIndex(p => p.id === selectedProject.id);
+          if (currentIndex !== -1) {
+            const nextIndex = currentIndex === projectsData.length - 1 ? 0 : currentIndex + 1;
+            const nextProject = projectsData[nextIndex];
+            nextProjectTitle = nextProject.title.toUpperCase();
+            onNextHandler = () => setSelectedProject(nextProject);
+          }
+        }
+
+        return (
+          <ProjectRedirect
+            key={selectedProject.id}
+            project={selectedProject}
+            onBack={() => setSelectedProject(null)}
+            onNext={onNextHandler}
+            nextProjectTitle={nextProjectTitle}
+          />
+        );
+      })()}
     </div>
   );
 }

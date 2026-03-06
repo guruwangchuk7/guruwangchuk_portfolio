@@ -10,7 +10,7 @@ import certImg from '../../assets/project-photos/blockchain project.png';
 import civicImg from '../../assets/project-photos/civic.png';
 import saidpieceImg from '../../assets/project-photos/saidpiece project.png';
 
-const projectsData = [
+export const projectsData = [
     {
         id: 1,
         title: "Certificate System",
