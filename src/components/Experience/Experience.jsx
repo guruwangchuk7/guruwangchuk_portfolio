@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import govtechImg from '../../assets/myphoto/govtech.JPG';
 import './Experience.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -24,6 +25,10 @@ const experiences = [
 
 const Experience = () => {
     const containerRef = useRef(null);
+    const photoRef     = useRef(null);
+    const revealRef    = useRef(null);
+
+    const now        = new Date();
 
     useEffect(() => {
         let ctx = gsap.context(() => {
@@ -65,33 +70,98 @@ const Experience = () => {
                 });
             });
 
+            /* ── Photo: cinematic clip-path wipe reveal ── */
+            if (revealRef.current && photoRef.current) {
+                gsap.set(revealRef.current, { clipPath: 'inset(100% 0% 0% 0%)' });
+                gsap.set(photoRef.current,  { scale: 1.1 });
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top 65%',
+                        toggleActions: 'play none none none',
+                    }
+                });
+
+                tl.to(revealRef.current, {
+                    clipPath: 'inset(0% 0% 0% 0%)',
+                    duration: 1.4,
+                    ease: 'power4.inOut',
+                }).to(photoRef.current, {
+                    scale: 1,
+                    duration: 1.6,
+                    ease: 'power3.out',
+                }, '<');
+
+                /* Parallax drift while scrolling */
+                gsap.to(photoRef.current, {
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: 'top bottom',
+                        end:   'bottom top',
+                        scrub: 1.5,
+                    },
+                    yPercent: -10,
+                    ease: 'none',
+                });
+            }
+
         }, containerRef);
         return () => ctx.revert();
     }, []);
 
     return (
         <section className="experience-section" ref={containerRef} id="experience">
-            <div className="section-container">
-                <div className="section-header">
-                    <span className="section-number">01</span>
-                    <h2 className="section-title">Experience</h2>
+            <div className="exp-row">
+
+                {/* ── LEFT: existing layout — untouched ── */}
+                <div className="exp-row-left">
+                    <div className="section-container">
+                        <div className="section-header">
+                            <span className="section-number">01</span>
+                            <h2 className="section-title">Experience</h2>
+                        </div>
+
+                        <div className="exp-grid">
+                            {experiences.map((exp, idx) => (
+                                <div key={idx} className="exp-item">
+                                    <div className="exp-top">
+                                        <h3>{exp.company}</h3>
+                                        <span className="exp-role">{exp.role}</span>
+                                    </div>
+                                    <div className="exp-meta">
+                                        <span>{exp.date}</span>
+                                        <span>{exp.location}</span>
+                                    </div>
+                                    <p>{exp.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
-                <div className="exp-grid">
-                    {experiences.map((exp, idx) => (
-                        <div key={idx} className="exp-item">
-                            <div className="exp-top">
-                                <h3>{exp.company}</h3>
-                                <span className="exp-role">{exp.role}</span>
-                            </div>
-                            <div className="exp-meta">
-                                <span>{exp.date}</span>
-                                <span>{exp.location}</span>
-                            </div>
-                            <p>{exp.desc}</p>
+                {/* ── RIGHT: cinematic photo panel ── */}
+                <div className="exp-row-right">
+                    <div className="exp-photo-reveal" ref={revealRef}>
+                        <img
+                            ref={photoRef}
+                            src={govtechImg}
+                            alt="Guru Wangchuk at GovTech"
+                            className="exp-photo-img"
+                        />
+                        
+                        <div className="exp-photo-overlay" />
+
+                        <div className="exp-photo-badge">
+                            <span>In Action</span>
                         </div>
-                    ))}
+
+                        <div className="exp-photo-badge">
+                            <span>In Action</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
     );
