@@ -38,12 +38,12 @@
 
 .name-container {
     display: flex;
+    flex-wrap: nowrap;
     gap: 0.1em;
     font-size: clamp(2.5rem, 12vw, 10rem);
     font-weight: 600;
-    /* Updated to Semi-bold */
     letter-spacing: -0.06em;
-    line-height: 0.85;
+    line-height: normal; /* Changed from 0.85 to normal to avoid vertical clipping on some browsers */
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -51,7 +51,7 @@
 .first-name,
 .last-name {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end; /* Changed from baseline to flex-end for better control */
 }
 
 .hidden-letters {
@@ -210,6 +210,14 @@
 }
 
 @media (max-width: 768px) {
+    .name-container {
+        flex-direction: column;
+        gap: 2px; /* Ultra-tight gap */
+        align-items: flex-start;
+        font-size: clamp(2.2rem, 15vw, 6rem);
+        line-height: 0.85; /* Tightened line-height to reduce spacing further */
+    }
+
     .main-content {
         padding: 4vh 6vw;
     }
@@ -244,7 +252,7 @@
 
 @media (max-width: 480px) {
     .name-container {
-        font-size: clamp(1.5rem, 15vw, 4rem);
+        font-size: clamp(2rem, 20vw, 4.5rem);
     }
 
     .hero-introduction h1 {

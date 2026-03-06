@@ -45,10 +45,14 @@
 
 .exp-item {
     position: relative;
-    transition: all 0.3s ease;
+    /* Only transition opacity — GSAP owns 'transform', 'all' causes conflicts */
+    transition: opacity 0.3s ease;
     margin-bottom: 4rem;
     padding-left: 0 !important;
     border-left: none !important;
+    /* Force GPU compositing layer to eliminate scroll paint lag */
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 .exp-item:hover {

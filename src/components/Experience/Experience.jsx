@@ -33,28 +33,35 @@ const Experience = () => {
                     scrollTrigger: {
                         trigger: header,
                         start: "top 90%",
-                        toggleActions: "play none none reverse"
+                        toggleActions: "play none none none" // No reverse — prevents re-animation jank
                     },
-                    y: 50,
+                    y: 40,
                     opacity: 0,
-                    duration: 1.2,
+                    duration: 1,
                     ease: "power3.out"
                 });
             }
 
             const items = gsap.utils.toArray('.exp-item');
+            // Set will-change before animating for GPU compositing
+            gsap.set(items, { willChange: "transform, opacity" });
+
             items.forEach((item, i) => {
                 gsap.from(item, {
                     scrollTrigger: {
                         trigger: item,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
+                        start: "top 88%",
+                        toggleActions: "play none none none" // One-shot: play once, no reverse
                     },
-                    y: 60,
+                    y: 40,
                     opacity: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                    delay: i * 0.05
+                    duration: 0.8,
+                    ease: "power2.out",
+                    delay: i * 0.08,
+                    onComplete: () => {
+                        // Release will-change after animation to free GPU memory
+                        gsap.set(item, { willChange: "auto" });
+                    }
                 });
             });
 

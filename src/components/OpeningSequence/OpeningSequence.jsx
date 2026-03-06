@@ -30,8 +30,32 @@ const OpeningSequence = () => {
     const containerRef = useRef(null);
     const mainContentRef = useRef(null);
 
+    const handleNavClick = (e, targetId) => {
+        e.preventDefault();
+        const element = document.querySelector(targetId);
+        if (element) {
+            const offset = 0; // Adjust if you have a sticky header
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add({
+            isMobile: "(max-width: 768px)",
+            isDesktop: "(min-width: 769px)"
+        }, (context) => {
+            const { isMobile } = context.conditions;
+
             CustomEase.create("mainEase", "0.76, 0, 0.24, 1");
 
             const tl = gsap.timeline({
@@ -74,8 +98,8 @@ const OpeningSequence = () => {
                 }, "-=1.2")
                 // Shift name up and scale down
                 .to(".name-wrapper-relative", {
-                    scale: 0.35, // Increased size substantially
-                    top: "14vh", // Adjusted slightly to accommodate the larger font block
+                    scale: isMobile ? 0.38 : 0.35, // Adjust scale for stacked vs horizontal
+                    top: isMobile ? "10vh" : "14vh", // Higher top on mobile to avoid nav collision
                     left: "5vw",
                     xPercent: 0,
                     yPercent: 0,
@@ -108,7 +132,7 @@ const OpeningSequence = () => {
                 }, "-=1.4")
         }, containerRef);
 
-        return () => ctx.revert();
+        return () => mm.revert();
     }, []);
 
     return (
@@ -117,11 +141,11 @@ const OpeningSequence = () => {
                 <nav className="nav-bar">
                     <div className="header-role" style={{ opacity: 0 }}>FULL STACK ENGINEER</div>
                     <div className="nav-links">
-                        <a href="#about">About</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#projects">Work</a>
-                        <a href="#skills">Arsenal</a>
-                        <a href="#footer">Contact</a>
+                        <a href="#about" onClick={(e) => handleNavClick(e, '#about')}>About</a>
+                        <a href="#experience" onClick={(e) => handleNavClick(e, '#experience')}>Experience</a>
+                        <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')}>Work</a>
+                        <a href="#skills" onClick={(e) => handleNavClick(e, '#skills')}>Stack</a>
+                        <a href="#footer" onClick={(e) => handleNavClick(e, '#footer')}>Contact</a>
                     </div>
                 </nav>
 
