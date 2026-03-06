@@ -13,27 +13,59 @@ import saidpieceImg from '../../assets/project-photos/saidpiece project.png';
 const projectsData = [
     {
         id: 1,
-        title: "Certificate Validation",
-        tech: "Blockchain / React",
-        bg: certImg
+        title: "Certificate System",
+        tech: "Blockchain / Solidity",
+        bg: certImg,
+        role: "Blockchain Developer",
+        duration: "16 Weeks / 2024",
+        vision: "Developing a tamper-proof verification ecosystem for academic institutions using decentralized ledger technology to eliminate certification fraud.",
+        execution: [
+            "Architected a secure verification workflow on the blockchain to ensure data transparency and immutable record keeping.",
+            "Engineered a high-performance React frontend for seamless certificate issuance and real-time public validation.",
+            "Implemented smart contract protocols to automate the verification process with maximum efficiency."
+        ]
     },
     {
         id: 2,
-        title: "Civic Sense",
-        tech: "Next.js / GIS",
-        bg: civicImg
+        title: "CivicPulse",
+        tech: "Next.js / GIS / Node",
+        bg: civicImg,
+        role: "Full Stack Lead",
+        duration: "14 Weeks / 2024",
+        vision: "A real-time civic engagement platform bridging the communication gap between citizens and local authorities via interactive mapping.",
+        execution: [
+            "Integrated advanced GIS mapping for real-time reporting of urban infrastructure issues like hazards and trash.",
+            "Built a powerful administrative dashboard to track and manage complaint resolution workflows efficiently.",
+            "Designed a responsive, mobile-first experience to empower citizens to engage with their local government on the go."
+        ]
     },
     {
         id: 3,
         title: "Druk SmartPark",
-        tech: "Python / AI",
-        bg: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=1000&auto=format&fit=crop"
+        tech: "Python / AI / React",
+        bg: "https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=1000&auto=format&fit=crop",
+        role: "Data & AI Engineer",
+        duration: "Ongoing / 2025",
+        vision: "Transforming urban mobility with AI-driven parking management, featuring real-time KPI tracking and predictive analytics.",
+        execution: [
+            "Implemented real-time monitoring for active parking sessions, revenue streams, and overall system health.",
+            "Developed AI models for traffic density analysis and automated detection of parking violations.",
+            "Engineered automated officer dispatching systems based on real-time violation triggers and zone performance."
+        ]
     },
     {
         id: 4,
-        title: "Saidpiece website",
-        tech: "React / GSAP",
-        bg: saidpieceImg
+        title: "Saidpiece Portfolio",
+        tech: "React / GSAP / Design",
+        bg: saidpieceImg,
+        role: "Team Lead • Full Stack",
+        duration: "8 Weeks / 2025",
+        vision: "Crafting a premium digital presence for an elite architectural firm, focusing on high-end visual storytelling and performance.",
+        execution: [
+            "Led the end-to-end development cycle as Project Lead, coordinating cross-functional tasks for timely delivery.",
+            "Implemented sophisticated cinematic animations using GSAP and React to mirror the firm's architectural elegance.",
+            "Optimized asset delivery and SEO strategies to ensure a global-reach presence for high-end architecture projects."
+        ]
     }
 ];
 

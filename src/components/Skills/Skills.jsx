@@ -139,8 +139,8 @@ const Skills = () => {
                                 <span className="edu-period">2025 - Present</span>
                                 <h3>Saidpiece Architecture</h3>
                             </div>
-                            <p className="edu-main">Full Stack Engineer • Team Lead</p>
-                            <p className="edu-sub">Leading end-to-end development and coordinating tasks for high-end architecture projects.</p>
+                            <p className="edu-main">Full Stack Engineer • Project Lead</p>
+                            <p className="edu-sub">Orchestrating end-to-end development of premium architectural platforms, coordinating team sprints and performance optimization.</p>
                         </div>
 
                         <div className="edu-card">
@@ -149,7 +149,7 @@ const Skills = () => {
                                 <h3>Chandigarh University</h3>
                             </div>
                             <p className="edu-main">BCA Full Stack • GPA: 7.85/10</p>
-                            <p className="edu-sub">Specializing in Full Stack Dev, Software Engineering, and Blockchain.</p>
+                            <p className="edu-sub">Major in Full Stack Dev. Specializing in Software Engineering, Blockchain, Cyber Security, and UI/UX Design.</p>
                         </div>
 
                         <div className="edu-card achievements-card">
@@ -159,7 +159,7 @@ const Skills = () => {
                             <div className="achievements-list">
                                 <div className="achievement">
                                     <span className="ach-label">Honors</span>
-                                    <p>Best Student Award, Best Scout Award, Troop Leader.</p>
+                                    <p>Best Student & Scout Awards. Served as Scout Troop Leader and Audio Visual Captain.</p>
                                 </div>
                                 <div className="achievement">
                                     <span className="ach-label">Hackathons</span>

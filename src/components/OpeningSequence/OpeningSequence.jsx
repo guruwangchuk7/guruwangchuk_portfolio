@@ -125,11 +125,11 @@ const OpeningSequence = () => {
                 </nav>
 
                 <div className="hero-introduction">
-                    <h1>Crafting modern<br />digital experiences.</h1>
+                    <h1>Full Stack Developer <br /></h1>
                     <p>
-                        A developer passionate about building scalable web applications.
-                        Based in Chandigarh, India. Specializing in frontend excellence
-                        and robust full-stack architectures.
+                        Specializing in high-performance React ecosystems and robust full-stack architectures. 
+                        Currently leading end-to-end development at Saidpiece Architecture and 
+                        integrating advanced solutions in Blockchain and AI. Based in Thimphu, Bhutan.
                     </p>
 
                     <div className="scroll-indicator">

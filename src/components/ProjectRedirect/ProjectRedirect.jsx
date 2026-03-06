@@ -183,7 +183,7 @@ const ProjectRedirect = ({ project, onBack }) => {
                             <ArrowLeft size={18} />
                             <span>RETURN TO ARCHIVE</span>
                         </button>
-                        <div className="project-year">2024 / CASE STUDY</div>
+                        <div className="project-year">{project.duration || "2024 / CASE STUDY"}</div>
                     </div>
 
                     <div className="hero-center">
@@ -219,17 +219,16 @@ const ProjectRedirect = ({ project, onBack }) => {
                             </div>
                             <div className="grid-right">
                                 <p className="detail-description large">
-                                    Engineering a seamless integration between {project.tech.split(' / ')[0]} and user-centric design principles.
-                                    This project redefines how we interact with digital high-performance systems.
+                                    {project.vision || `Engineering a seamless integration between ${project.tech.split(' / ')[0]} and user-centric design principles. This project redefines how we interact with digital high-performance systems.`}
                                 </p>
                                 <div className="meta-stats">
                                     <div className="stat">
                                         <span className="stat-label">ROLE</span>
-                                        <span className="stat-value">Lead Design Engineer</span>
+                                        <span className="stat-value">{project.role || "Lead Design Engineer"}</span>
                                     </div>
                                     <div className="stat">
                                         <span className="stat-label">DURATION</span>
-                                        <span className="stat-value">12 Weeks / Q1</span>
+                                        <span className="stat-value">{project.duration || "12 Weeks / Q1"}</span>
                                     </div>
                                 </div>
                             </div>
@@ -250,18 +249,29 @@ const ProjectRedirect = ({ project, onBack }) => {
                             </div>
                             <div className="grid-right">
                                 <div className="process-list">
-                                    <div className="process-item">
-                                        <h3>01 / ARCHITECTURE</h3>
-                                        <p>Developed a robust foundation using {project.tech}, ensuring maximum scalability and fluid performance across all interaction points.</p>
-                                    </div>
-                                    <div className="process-item">
-                                        <h3>02 / INTERACTION</h3>
-                                        <p>Implemented sophisticated micro-interactions that provide tactile feedback, elevating the overall sensory experience of the application.</p>
-                                    </div>
-                                    <div className="process-item">
-                                        <h3>03 / DEPLOYMENT</h3>
-                                        <p>Leveraged edge computing and optimized asset delivery to maintain a consistent sub-second response time globally.</p>
-                                    </div>
+                                    {project.execution ? (
+                                        project.execution.map((step, idx) => (
+                                            <div key={idx} className="process-item">
+                                                <h3>0{idx + 1} / {["ARCHITECTURE", "INTERACTION", "DEPLOYMENT", "SCALE", "FUTURE"][idx] || "DEVELOPMENT"}</h3>
+                                                <p>{step}</p>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <>
+                                            <div className="process-item">
+                                                <h3>01 / ARCHITECTURE</h3>
+                                                <p>Developed a robust foundation using {project.tech}, ensuring maximum scalability and fluid performance across all interaction points.</p>
+                                            </div>
+                                            <div className="process-item">
+                                                <h3>02 / INTERACTION</h3>
+                                                <p>Implemented sophisticated micro-interactions that provide tactile feedback, elevating the overall sensory experience of the application.</p>
+                                            </div>
+                                            <div className="process-item">
+                                                <h3>03 / DEPLOYMENT</h3>
+                                                <p>Leveraged edge computing and optimized asset delivery to maintain a consistent sub-second response time globally.</p>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </div>
