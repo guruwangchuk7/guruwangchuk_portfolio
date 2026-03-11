@@ -10,6 +10,8 @@ import certImg from '../../assets/project-photos/blockchain project.png';
 import civicImg from '../../assets/project-photos/civic.png';
 import saidpieceImg from '../../assets/project-photos/saidpiece project.png';
 import drukImg from '../../assets/project-photos/druk.png';
+import himalayaImg from '../../assets/project-photos/himalaya.png';
+import travelSaidpieceImg from '../../assets/project-photos/travelsaidpiece.png';
 
 export const projectsData = [
     {
@@ -66,6 +68,34 @@ export const projectsData = [
             "Architected a high-performance React 19 ecosystem with Vite, integrating GSAP and Framer Motion for immersive scroll-triggered reveals and magnetic cursor interactions.",
             "Developed a comprehensive e-commerce store with persistent cart management and a secure administrative dashboard for real-time project and content updates.",
             "Implemented a robust backend-as-a-service using Supabase for PostgreSQL database management, secure authentication, and high-resolution image storage."
+        ]
+    },
+    {
+        id: 5,
+        title: "Himalaya Carbon Exchange",
+        tech: "Next.js 16 / Solidity / viem / wagmi",
+        bg: himalayaImg,
+        role: "Full Stack Web3 Developer",
+        duration: "Ongoing / 2026",
+        vision: "A sovereign carbon market layer synchronized with a national registry, enabling whitelisted institutions to hold and retire ERC-1155 tokenized carbon credits.",
+        execution: [
+            "Architected a Next.js App Router application integrating viem and wagmi for reliable wallet connectivity and robust on-chain transaction management.",
+            "Engineered ERC-1155 smart contracts for a sovereign carbon registry, incorporating whitelist control, project metadata, and decentralized retirement flows.",
+            "Developed end-to-end integration mapping real-world CAD Trust lifecycle events and RFQ intake processes to on-chain pool primitives and transparent UI layers."
+        ]
+    },
+    {
+        id: 6,
+        title: "Saidpiece Travel",
+        tech: "Next.js 16 / Supabase / Wagmi / Tailwind",
+        bg: travelSaidpieceImg,
+        role: "Full Stack Developer",
+        duration: "Ongoing / 2026",
+        vision: "A premium booking platform for Bhutan travel experiences featuring integrated fiat and cryptocurrency payment flows backed by a secure cloud architecture.",
+        execution: [
+            "Architected a high-performance Next.js 16 App Router application providing dynamic marketing content alongside protected, authentication-gated booking workflows.",
+            "Engineered a comprehensive cryptocurrency payment engine utilizing Wagmi and Viem for on-chain ERC-20 payment intent generation and receipt verification.",
+            "Implemented a scalable serverless backend using Supabase for PostgreSQL data modeling, comprehensive role-based access control, and Google OAuth integration."
         ]
     }
 ];
