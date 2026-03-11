@@ -70,15 +70,19 @@
 
 /* Typography Text Frame */
 .proj-title-text {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
     font-weight: 700;
     text-transform: uppercase;
     color: rgba(244, 244, 244, 0.4);
     margin: 0;
     letter-spacing: -0.03em;
-    line-height: 0.9;
+    line-height: 1;
     will-change: transform, color;
-    /* Prepared for GSAP Optimization */
+    white-space: nowrap;
+}
+
+.proj-title-word {
+    display: inline;
 }
 
 .proj-tech-box {
@@ -177,7 +181,7 @@
     }
 
     .proj-title-text {
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
 }
 
@@ -191,6 +195,6 @@
     }
 
     .proj-title-text {
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 5vw, 1.4rem);
     }
 }

@@ -30,7 +30,7 @@ export const projectsData = [
     },
     {
         id: 2,
-        title: "CivicPulse",
+        title: "Civic Pulse",
         tech: "Next.js / Leaflet / MySQL / Supabase",
         bg: civicImg,
         role: "Full Stack Lead",
@@ -44,7 +44,7 @@ export const projectsData = [
     },
     {
         id: 3,
-        title: "Druk SmartPark",
+        title: "Druk Smart Parking",
         tech: "Python / Django / Next.js / Flutter / AI",
         bg: drukImg,
         role: "Lead Developer & AI Engineer",
@@ -183,7 +183,11 @@ const Projects = ({ onProjectSelect }) => {
                             <span className="proj-idx">0{proj.id}</span>
                         </div>
                         <div className="proj-title">
-                            <h3 className="proj-title-text">{proj.title}</h3>
+                            <h3 className="proj-title-text">
+                                {proj.title.split(" ").map((word, idx) => (
+                                    <span key={idx} className="proj-title-word">{word} </span>
+                                ))}
+                            </h3>
                         </div>
                         <div className="proj-tech-box">
                             {proj.tech}

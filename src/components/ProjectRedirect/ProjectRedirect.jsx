@@ -191,9 +191,15 @@ const ProjectRedirect = ({ project, onBack, onNext, nextProjectTitle }) => {
 
                     <div className="hero-center">
                         <div className="redirect-idx">{typeof project.id === 'string' ? "SKL" : `0${project.id}`}</div>
-                        <h1 className="redirect-title">
-                            {titleChars.map((char, i) => (
-                                <span key={i} style={{ display: 'inline-block' }}>{char === " " ? "\u00A0" : char}</span>
+                        <h1 className="redirect-title stack-title">
+                            {project.title.split(" ").map((word, wordIdx) => (
+                                <div key={wordIdx} className="title-word">
+                                    {word.split("").map((char, charIdx) => (
+                                        <span key={charIdx} style={{ display: 'inline-block' }}>
+                                            {char}
+                                        </span>
+                                    ))}
+                                </div>
                             ))}
                         </h1>
                         <div className="redirect-meta">
