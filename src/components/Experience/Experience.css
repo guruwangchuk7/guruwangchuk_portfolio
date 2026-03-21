@@ -177,6 +177,7 @@
 /* ── Photo reveal and overlay ── */
 .exp-photo-reveal {
     width: 100%;
+    max-width: 500px;
     aspect-ratio: 5 / 6;
     max-height: 65vh;
     overflow: hidden;

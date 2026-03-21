@@ -78,7 +78,10 @@
     letter-spacing: -0.03em;
     line-height: 1;
     will-change: transform, color;
-    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.3em;
 }
 
 .proj-title-word {

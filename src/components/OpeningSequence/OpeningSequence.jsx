@@ -99,7 +99,7 @@ const OpeningSequence = () => {
                 // Shift name up and scale down
                 .to(".name-wrapper-relative", {
                     scale: isMobile ? 0.38 : 0.35, // Adjust scale for stacked vs horizontal
-                    top: isMobile ? "10vh" : "14vh", // Higher top on mobile to avoid nav collision
+                    top: isMobile ? "max(10vh, 80px)" : "max(12vh, 100px)", // Safer math to avoid nav collisions on short screens
                     left: "5vw",
                     xPercent: 0,
                     yPercent: 0,

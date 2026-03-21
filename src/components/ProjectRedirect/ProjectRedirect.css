@@ -78,12 +78,14 @@
 /* Hero Section */
 .project-hero {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 4vh 5vw;
+    padding: clamp(3vh, 5vh, 60px) 5vw;
     position: relative;
+    gap: 2rem;
 }
 
 .nav-elements {
@@ -134,7 +136,7 @@
 }
 
 .redirect-title {
-    font-size: clamp(32px, 8vw, clamp(100px, 10vw, 140px));
+    font-size: clamp(28px, 6vw, clamp(60px, 8vw, 120px));
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.04em;

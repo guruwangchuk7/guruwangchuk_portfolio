@@ -40,7 +40,7 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 0.1em;
-    font-size: clamp(2.5rem, 12vw, 10rem);
+    font-size: clamp(2.5rem, 8vw, 8rem);
     font-weight: 600;
     letter-spacing: -0.06em;
     line-height: normal; /* Changed from 0.85 to normal to avoid vertical clipping on some browsers */
@@ -214,7 +214,7 @@
         flex-direction: column;
         gap: 2px; /* Ultra-tight gap */
         align-items: flex-start;
-        font-size: clamp(2.5rem, 13.5vw, 5.5rem);
+        font-size: clamp(2.5rem, 12vw, 4.5rem);
         line-height: 0.85; /* Tightened line-height to reduce spacing further */
     }
 
@@ -252,7 +252,7 @@
 
 @media (max-width: 480px) {
     .name-container {
-        font-size: clamp(2.2rem, 13.5vw, 4rem);
+        font-size: clamp(1.8rem, 12vw, 3.5rem);
     }
 
     .hero-introduction h1 {
