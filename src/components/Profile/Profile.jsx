@@ -75,7 +75,10 @@ const Profile = () => {
                     <div className="profile-content" ref={contentRef}>
                         <div className="profile-text">
                             <span className="profile-intro-tag">THE PERSON BEHIND THE CODE</span>
-                            <h2 className="profile-heading">Full Stack & <br /> Blockchain Developer</h2>
+                            <h1 className="profile-heading">
+                                <span className="visually-hidden">Guru Wangchuk | </span>
+                                Full Stack & <br /> Blockchain Developer
+                            </h1>
                             <p className="profile-subheading">Startup Owner of Kodadev</p>
                             <p className="profile-bio">
                                 I am Guru Wangchuk, a developer based in Chandigarh, originally from Bhutan. 

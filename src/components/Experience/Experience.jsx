@@ -119,7 +119,9 @@ const Experience = () => {
                     <div className="section-container">
                         <div className="section-header">
                             <span className="section-number">01</span>
-                            <h2 className="section-title">Experience</h2>
+                            <h2 className="section-title">
+                                <span className="visually-hidden">Guru Wangchuk's </span>Experience
+                            </h2>
                         </div>
 
                         <div className="exp-grid">

@@ -98,7 +98,9 @@ const Skills = ({ onArsenalSelect }) => {
                 <div className="content-block">
                     <div className="section-header">
                         <span className="section-number">03</span>
-                        <h2 className="section-title">Technology Stack</h2>
+                        <h2 className="section-title">
+                            <span className="visually-hidden">Full Stack </span>Technology Stack
+                        </h2>
                         <p className="section-subtitle">Multi-disciplinary skillset from core low-level bits to high-level reactive interfaces.</p>
                     </div>
 
@@ -166,7 +168,9 @@ const Skills = ({ onArsenalSelect }) => {
                 <div className="content-block">
                     <div className="section-header">
                         <span className="section-number">04</span>
-                        <h2 className="section-title">Academic & Career</h2>
+                        <h2 className="section-title">
+                            <span className="visually-hidden">Software Engineering </span>Academic & Career
+                        </h2>
                         <p className="section-subtitle">A synthesis of academic rigor and high-stakes professional engineering.</p>
                     </div>
 
